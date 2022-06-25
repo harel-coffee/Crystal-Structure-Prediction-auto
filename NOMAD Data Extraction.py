@@ -6,7 +6,7 @@ crystal_systems = ['cubic', 'hexagonal', 'monoclinic', 'orthorhombic', 'tetragon
 loop = 0
 total = 0
 
-skip = 37
+skip = 0 # If the run is halted, adjust this parameter to skip the already considered elements
 
 # The three loops serve to divide the searched data into chunks as to not exceed the 10,000 search limit, resulting in lost data
 
@@ -117,4 +117,4 @@ for a in range(len(elements)-1-skip):
         for key in extracted_data:
           extracted_data[key].append(locals()[key])
 
-  pd.DataFrame(data=extracted_data).to_pickle("/content/drive/MyDrive/CMG - Crystal Prediction Project/Ternary Materials Point Group Prediction/Data/NOMAD_2/"+str(a+1+skip)+".pkl")
+  pd.DataFrame(data=extracted_data).to_pickle(str(a+1+skip)+".pkl")
